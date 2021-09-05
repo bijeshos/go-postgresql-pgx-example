@@ -3,16 +3,17 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/jackc/pgx/v4/pgxpool"
 	"log"
 	"os"
 	"time"
+
+	"github.com/jackc/pgx/v4/pgxpool"
 )
 
 func main() {
 	log.Println("starting program")
 	//get the database connection URL. usually, this is taken a value for environment variable
-	databaseUrl := "postgres://postgres:postgres@123@localhost:5432/postgres"
+	databaseUrl := "postgres://postgres:mypassword@localhost:5432/postgres"
 	dbPool, err := pgxpool.Connect(context.Background(), databaseUrl)
 
 	if err != nil {
